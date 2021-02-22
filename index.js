@@ -63,8 +63,8 @@ function LavaLamp(canvas) {
 			void main() {
 				pointCoord = position;
 				gl_Position = vec4(
-					(position.x * 0.3 + offset.x) / aspectRatio,
-					position.y * 0.3 + offset.y,
+					(position.x * 0.35 + offset.x) / aspectRatio,
+					position.y * 0.35 + offset.y,
 					0.0, 1.0
 				);
 			}
@@ -79,7 +79,7 @@ function LavaLamp(canvas) {
 				float lengthSquared = dot(pointCoord, pointCoord);
 				float distance = sqrt(lengthSquared);
 				vec3 normal = vec3(pointCoord, sqrt(1.0 - lengthSquared));
-				gl_FragColor = vec4((normal + vec3(1)) * 0.5, (1.0 - distance) * 16.0);
+				gl_FragColor = vec4((normal + vec3(1)) * 0.5, (1.0 - distance) * 5.0);
 			}
 		`, gl.FRAGMENT_SHADER)
 
@@ -153,6 +153,7 @@ function LavaLamp(canvas) {
 					),
 					1
 				);
+				// gl_FragColor = texture;
 			}
 		`, gl.FRAGMENT_SHADER)
 
